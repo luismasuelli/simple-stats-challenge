@@ -39,9 +39,8 @@ _please note: according to the rules, computing the stats does not depend on the
 
 ## Testing
 
-If you want to test this repository then just [create and] activate a virtual environment of your choice and:
+If you want to test this repository then just do this after cloning this repo:
 
-    $ pip install pytest
+    $ pip install -U pytest
     $ cd challenge-team-international/
     $ pytest
-
