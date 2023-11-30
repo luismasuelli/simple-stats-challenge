@@ -8,7 +8,7 @@ class Stats:
     """
 
     @staticmethod
-    def _make_cumulative_histogram(histogram: List[int]):
+    def _make_cumulative_histogram(histogram: List[int]) -> List[int]:
         """
         Builds the cumulative histogram CH, where CH[i] == sum(histogram[:i+1]).
 
@@ -43,7 +43,7 @@ class Stats:
         self._histogram_size = len(histogram)
         self._max_value = self._histogram_size - 1
 
-    def less(self, value: int):
+    def less(self, value: int) -> int:
         """
         Returns the number of elements that are lower than the provided value.
         :param value: The value to test against.
@@ -57,7 +57,7 @@ class Stats:
         else:
             return self._cummulative_histogram[value - 1]
 
-    def greater(self, value: int):
+    def greater(self, value: int) -> int:
         """
         Returns the number of elements that are greater than the provided value.
         :param value: The value to test against.
@@ -72,7 +72,7 @@ class Stats:
         else:
             return all_elements - self._cummulative_histogram[value]
 
-    def between(self, start: int, end: int):
+    def between(self, start: int, end: int) -> int:
         """
         Returns the number of elements that are between
         :param start: The minimum element in the range (inclusive).
