@@ -89,7 +89,8 @@ class Stats:
         elif end < 0:
             return 0
 
-        end = min(end, self._max_value)
+        if end > self._max_value:
+            end = self._max_value
         if start <= 0:
             return self._cummulative_histogram[end]
         else:
