@@ -18,7 +18,7 @@ class Capture:
         :param value: The value to add.
         """
 
-        if value not in range(self.MAX_VALUE):
+        if not isinstance(value, int) or value not in range(self.MAX_VALUE):
             raise ValueError("Invalid value")
         self._collected[value] += 1
 

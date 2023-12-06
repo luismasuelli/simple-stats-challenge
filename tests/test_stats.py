@@ -14,6 +14,15 @@ def test_invalid_values():
     capture.add(3)
 
     with pytest.raises(ValueError):
+        capture.add(1.0)
+
+    with pytest.raises(ValueError):
+        capture.add("1")
+
+    with pytest.raises(ValueError):
+        capture.add(None)
+
+    with pytest.raises(ValueError):
         capture.add(-1)
 
     with pytest.raises(ValueError):
