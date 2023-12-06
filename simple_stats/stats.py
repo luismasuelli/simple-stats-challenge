@@ -39,7 +39,7 @@ class Stats:
         :param histogram: The histogram to build the stats from.
         """
 
-        self._cummulative_histogram = Stats._make_cumulative_histogram(histogram)
+        self._cumulative_histogram = Stats._make_cumulative_histogram(histogram)
         self._histogram_size = len(histogram)
         self._max_value = self._histogram_size - 1
 
@@ -53,9 +53,9 @@ class Stats:
         if value <= 0:
             return 0
         elif value > self._histogram_size:
-            return self._cummulative_histogram[-1]
+            return self._cumulative_histogram[-1]
         else:
-            return self._cummulative_histogram[value - 1]
+            return self._cumulative_histogram[value - 1]
 
     def greater(self, value: int) -> int:
         """
@@ -64,13 +64,13 @@ class Stats:
         :return: The count of greater values.
         """
 
-        all_elements = self._cummulative_histogram[-1]
+        all_elements = self._cumulative_histogram[-1]
         if value < 0:
             return all_elements
         elif value >= self._max_value:
             return 0
         else:
-            return all_elements - self._cummulative_histogram[value]
+            return all_elements - self._cumulative_histogram[value]
 
     def between(self, start: int, end: int) -> int:
         """
@@ -92,6 +92,6 @@ class Stats:
         if end > self._max_value:
             end = self._max_value
         if start <= 0:
-            return self._cummulative_histogram[end]
+            return self._cumulative_histogram[end]
         else:
-            return self._cummulative_histogram[end] - self._cummulative_histogram[start - 1]
+            return self._cumulative_histogram[end] - self._cumulative_histogram[start - 1]
